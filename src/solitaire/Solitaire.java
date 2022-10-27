@@ -1,30 +1,11 @@
 package solitaire;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Queue;
-import java.util.Stack;
-import javax.imageio.ImageIO;
-import javax.swing.*;
-
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
-import java.io.File;
-import java.io.IOException;
-import javax.swing.BorderFactory;
-import javax.swing.border.*;
-import java.util.Stack;
-import java.util.stream.Stream;
-import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Stack;
+
 
 import solitaire.Card.Suit;
 
@@ -98,84 +79,18 @@ public class Solitaire {
     	    	
 				listOfStacks.get(i).push( (Card)deck_52.pop() );
     	    	listOfStacks.get(i).peek().hide();
-    	    	//if(i!=j) {
-    	    	//	(listOfStacks.get(i).peek()).hide();
-    	    	//}
     	    }
-    	    //System.out.println("\\/");
     	}
 	}
 	public Solitaire() {
-
 		
 		initiate();
-		//legalMove(stackOne.peek(),stackTwo.peek());
-		//moveCard(stackOne.peek(),stackTwo.peek());
-		
-		//whereCard(drawPile.peek());
-		//moveCard(stackThree.get(1),stackSix.peek());
-		
-		//moveCard(stackOne.peek(),stackTwo.peek());
-		
-		//moveCard(stackTwo.peek(),stackThree.peek());
-		
-		//moveCard(stackThree.peek(),stackFour.peek());
-		
-		//moveCard(stackFour.peek(),stackFive.peek());
-		
-		//moveCard(stackSix.get(2),stackOne.peek());
-		
-		//System.out.println(stackSix.peek());
-		//System.out.println(stackSix.get(stackSix.size()-1));
-		//moveCard(stackSeven.get(2),stackThree.peek());
-		
-		//moveCard(stackSix.get(stackSix.size()-2),stackTwo.peek());
-		//drawCard();
-		//drawCard();
-		//drawCard();
-		//drawCard();
-		//drawCard();
-		//drawCard();
-		//drawCard();
-		//drawCard();
-		//drawCard();
-		//drawCard();
-		//drawCard();
-		//drawCard();
-		//drawCard();
-		//drawCard();
-//		for (int g = 0; g<12; g++) {
-//			for (int i = 0; i<7; i++) {
-//				if (!drawPile.empty()) {
-//					moveCard(drawPile.peek(),listOfStacks.get(i).peek());
-//					
-//					
-//				}
-//				
-//			}
-//			
-//		}
-		
-		
-//		addCard(6,new Card(12, Suit.Diamonds));
-//		addCard(6,new Card(11, Suit.Diamonds));
-//		addCard(6,new Card(10, Suit.Diamonds));
-//		addCard(6,new Card(9, Suit.Diamonds));
-//		addCard(6,new Card(8, Suit.Diamonds));
-//		addCard(6,new Card(7, Suit.Diamonds));
-//		addCard(6,new Card(6, Suit.Diamonds));
-//		addCard(6,new Card(5, Suit.Diamonds));
-//		addCard(6,new Card(4, Suit.Diamonds));
-//		addCard(6,new Card(3, Suit.Diamonds));
-//		addCard(6,new Card(2, Suit.Diamonds));
-//		addCard(6,new Card(1, Suit.Diamonds));
-		//flipPileCard();
+
 	}
 	public void addCard(int stackNum,Card card) {
-		//STACKS -> 0-6!!
-		//colGrab.get(stackNum);
-		
+
 		listOfStacks.get(stackNum).push(card);
+
 	}
 	
 	public void deckDispUpdate() {
@@ -198,19 +113,14 @@ public class Solitaire {
 			if(i.contains(theCard)){
 				for(int g=0; g<listOfStacks.size();g++) {
 					if(listOfStacks.get(g).contains(theCard)) {
-						//System.out.println(listOfStacks.get(g) + " this is the stack!!");
-						//System.out.println("mainStack " + Integer.toString(g) + " " + i.indexOf(theCard));
 						return "mainStack " + Integer.toString(g) + " "  + i.indexOf(theCard);
 					}
 				}
-				//System.out.println(i.indexOf(theCard)+" "+ listOfStacks); 
 			}
 		}
 		if (!drawPile.empty()) {
 			if(drawPile.peek()==theCard) {
 				//the card is on top of draw pile
-				//System.out.println(drawPile.indexOf(drawPile.peek()));
-				//System.out.println("Drawpile 0 " + drawPile.indexOf(drawPile.peek()));
 				return "drawPile 0 " + drawPile.indexOf(drawPile.peek());
 			}
 		}
@@ -219,7 +129,6 @@ public class Solitaire {
 			
 			for(int i=0; i<listOfFinalStacks.size();i++) {
 				if(listOfFinalStacks.get(i).peek()==(theCard)) {
-					//System.out.println("finalStack " + Integer.toString(i) + " " + g.indexOf(theCard));
 					return "finalStack " + Integer.toString(i) +" "  + g.indexOf(theCard);
 				}
 			}
@@ -230,16 +139,16 @@ public class Solitaire {
 		if(theCard.value==101) {
 			switch (theCard.suit) {
 			
-			case Clubs:
-				return "finalStack " + Integer.toString(0) +" "  + Integer.toString(0);
+				case Clubs:
+					return "finalStack " + Integer.toString(0) +" "  + Integer.toString(0);
 
-			case Diamonds:
-				return "finalStack " + Integer.toString(1) +" "  + Integer.toString(0);
-			case Hearts:
-				return "finalStack " + Integer.toString(2) +" "  + Integer.toString(0);
-			case Spades:
-				return "finalStack " + Integer.toString(3) +" "  + Integer.toString(0);
-			default: System.out.println("switch error!");
+				case Diamonds:
+					return "finalStack " + Integer.toString(1) +" "  + Integer.toString(0);
+				case Hearts:
+					return "finalStack " + Integer.toString(2) +" "  + Integer.toString(0);
+				case Spades:
+					return "finalStack " + Integer.toString(3) +" "  + Integer.toString(0);
+				default: System.out.println("switch error!");
 			
 			}
 				
@@ -267,7 +176,7 @@ public class Solitaire {
 		
 		String locationToMove_StackName = wC_Decomp(whereCard(locationToMove),1);
 		int locationToMove_StackIndex = Integer.valueOf(wC_Decomp(whereCard(locationToMove),2));
-		int locationToMove_CardIndex = Integer.valueOf(wC_Decomp(whereCard(locationToMove),3));
+		//int locationToMove_CardIndex = Integer.valueOf(wC_Decomp(whereCard(locationToMove),3));
 		
 		//CRITICAL TO ADD BACK, DISABLED FOR TESTING
 		//CRITICAL TO ADD BACK, DISABLED FOR TESTING
@@ -280,7 +189,7 @@ public class Solitaire {
 				int toMove_Size=listOfStacks.get(toMove_StackIndex).size();
 				System.out.println(toMove_CardIndex);
 				System.out.println(toMove_Size);
-				//listOfStacks.get(toMove_StackIndex);
+	
 				
 				
 				for (int i=toMove_Size-1;i>=toMove_CardIndex;i--) {
@@ -294,18 +203,14 @@ public class Solitaire {
 			}
 			else if (toMove_StackName.contentEquals("drawPile")) {
 				System.out.println("is drawPile");
-				//listOfStacks.get(toMove_StackIndex);
-				//for (int i=0;i<=toMove_CardIndex;i++) {
+
 				movingStack.push(drawPile.pop());
-				//}
+
 				System.out.println("loaded from drawPile: " + movingStack);
 			}
 			
 			else if(toMove_StackName.contentEquals("finalStack")) {
-				//listOfStacks.get(toMove_StackIndex);
-				//for (int i=0;i<=toMove_CardIndex;i++) {
 				movingStack.push(listOfFinalStacks.get(toMove_StackIndex).pop());
-				//}
 				System.out.println("loaded from finalStack: " + movingStack);
 			}
 			else {
@@ -313,13 +218,11 @@ public class Solitaire {
 			}
 			
 			///Now have the Move Stack.
-			//flipPileCard();
 			int movSize = movingStack.size();
 			
 			System.out.println(locationToMove_StackName);
 			if(locationToMove_StackName.contentEquals("mainStack")) {
 				System.out.println(movingStack);
-				//listOfStacks.get(toMove_StackIndex);
 				for (int i=0;i<movSize;i++) {
 					System.out.println(movingStack);
 					listOfStacks.get(locationToMove_StackIndex).push(movingStack.pop());
@@ -331,10 +234,9 @@ public class Solitaire {
 			}
 			
 			else if (locationToMove_StackName.contentEquals("finalStack")) {
-				//listOfStacks.get(toMove_StackIndex);
-				//for (int i=0;i<=toMove_CardIndex;i++) {
+
 				listOfFinalStacks.get(locationToMove_StackIndex).push(movingStack.pop());
-				//}
+
 				
 				System.out.println("Pushed moveStack to finalstack");
 				return true;
@@ -364,14 +266,11 @@ public class Solitaire {
 		boolean isValidFlip = false;
 		boolean isValidLoc = false;
 		boolean isValidOrder = false;
-		// you are likely going to need to know where both the “toMove” and the “location” cards are so ‘.contains()’ will be a useful method for you to call
+		// you are likely going to need to know where both the ï¿½toMoveï¿½ and the ï¿½locationï¿½ cards are so ï¿½.contains()ï¿½ will be a useful method for you to call
 		
-		//for example you could check to see if the card you’re planning to move is in one of the piles in the center by doing:
+		//for example you could check to see if the card youï¿½re planning to move is in one of the piles in the center by doing:
 		for(Stack<Card> i : listOfStacks){
 			if(i.isEmpty() ) {
-				//i.push(new Card(54,Suit.Clubs));
-				//System.out.println();
-				//break;
 			}
 			if(i.peek().value==54 && i.peek()==location) {//is blank slot
 				if(toMove.value==13) { //trying to move king
@@ -382,8 +281,6 @@ public class Solitaire {
 			
 			
 			System.out.println("/\\/\\/\\/\\/\\ legalMoveLoc = " + location + "/\\/\\/\\/\\/\\");
-			//System.out.println(i);
-			//System.out.println(toMove);
 			if(i.contains(toMove)){
 			//the card is inside one of the middle piles
 				isValidCard=true;
@@ -465,24 +362,9 @@ public class Solitaire {
 			//DO SUIT CHECK TESTING AND VALUE TESTING ELSEWHERE OR SOMETHING ELSE CAUSE
 			//MOVING TO FINAL STACK IS DIFFERENT
 				isValidFlip=true;
-		//}
 		//here the card is
 		}
 		
-//		if(( (wC_Decomp(whereCard(toMove),1)=="mainStack")) && (Integer.valueOf(wC_Decomp(whereCard(toMove),3))!=0) ) {
-//			
-//			for (int i=0;i<=Integer.valueOf(wC_Decomp(whereCard(toMove),3));i++) {
-//				System.out.println(i+" fawsa");
-//				
-//				listOfStacks.get(Integer.valueOf(wC_Decomp(whereCard(toMove),2)));  //get currStack
-//				
-//			}
-//			
-//			/*
-//			 * for (int i=0;i<=toMove_CardIndex;i++) { movingStack.push(.pop()); }
-//			 */
-//			
-//		}
 		
 		//if needed, check if all cards below aren't reversed
 		if (toMove == location) {
@@ -490,11 +372,17 @@ public class Solitaire {
 		}
 		System.out.println("Debug legal move: " + isValidFlip + "  "+  isValidCard  + "  "+ isValidLoc  + "  "+ isValidOrder);
 		if(isValidFlip==true && isValidCard==true && isValidLoc == true && isValidOrder==true) {
-			//System.out.println("valid!");
 			return true;
-		}
-		//System.out.println("Not Valid!");
+		};
 		return false;
+	}
+	protected boolean boardStacksEmpty(){
+		for(Stack<Card> g : listOfStacks){
+			if(g.size()>1) {
+				return false;
+			}
+		}
+		return true;
 	}
 	private void initiate() {
 		backOfDeck.hide();
@@ -543,12 +431,7 @@ public class Solitaire {
 		cardBacksArray.add(backEleven);
 		cardBacksArray.add(backTwelve);
 		
-		
-		//cardMap.put(0, Suit.Clubs);
-	    //cardMap.put(1, Suit.Diamonds);
-	    //cardMap.put(2, Suit.Hearts);
-	    //cardMap.put(3, Suit.Spades);
-		
+
 		
 		for (Suit suit : Suit.values()) {
 		       for (int i =1; i <= 13; i++) {
@@ -572,26 +455,16 @@ public class Solitaire {
 		//DEBUG UNCOMMENT LATER 
 		//DEBUG UNCOMMENT LATER 
 		//DEBUG UNCOMMENT LATER 
-			//Stack<Card> tempReturn= new Stack<Card>();
-			//while(!deck_52.empty()){
-			//	tempReturn.push(deck_52.pop());
-			//}
-			//deck_52.sort(Collections.reverseOrder());
-			
-			//deck_52=tempReturn;
-			//System.out.println(tempReturn);
+
+
 			for (int i = 0; i < 7; i++) {
 				listOfStacks.get(i).push(new Card(54,Suit.Clubs));
 				for (int j = 0; j <= i; j++) {
 	    	    	
 					listOfStacks.get(i).push( (Card)deck_52.pop() );
 	    	    	listOfStacks.get(i).peek().hide();
-	    	    	//if(i!=j) {
-	    	    	//	(listOfStacks.get(i).peek()).hide();
-	    	    	//}
 	    	    }
 				
-	    	    //System.out.println("\\/");
 	    	}
 	       //putCardsToPiles();
 		

@@ -1,13 +1,10 @@
 package solitaire;
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.Image;
 import java.awt.Point;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
-import java.util.Arrays;
 
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
@@ -91,7 +88,6 @@ public class Card extends JPanel{
 		}
 		
 		public String getCardID() {
-			//System.out.println(suit.name());
 			String idValue="0";
 			if(value>52) {
 				if (value==53) {
@@ -142,7 +138,6 @@ public class Card extends JPanel{
 				return null;
 			}
 			
-			//System.out.println(idValue);
 			return "cards_"+(idValue)+".bmp";
 		}
 		
@@ -166,15 +161,10 @@ public class Card extends JPanel{
 			this.suit = suit;		
 			
 			isReversed = false;
-			//System.out.println(this.toString());
 			try {
 				// Load the image for the current file
-				//System.out.println(getCardID());
-			    //File img =new File("./img/"+getCardID());
-				
-				File img = new File("\\\\WJ424-DATA\\STUHOME\\427242\\Documents\\tmp\\Solitaire_Swing\\img\\" +getCardID());
+				File img = new File(".\\img\\" +getCardID());
 			    image = ImageIO.read(img); 
-			    //System.out.println(Arrays.toString(ImageIO.getReaderFileSuffixes()));
 				// Load the backImage
 			    File img2 = new File(backImg);
 				backImage = ImageIO.read(img2 );
@@ -185,12 +175,8 @@ public class Card extends JPanel{
 			}
 			
 			positionOffset = new Point(0,0);
-			//setSize(new Dimension(100, 145));
-			
 			setPreferredSize(new Dimension(image.getWidth(), image.getHeight()));
 		    setMinimumSize(new Dimension(image.getWidth(), image.getHeight()));
-		    //System.out.println("width: "+image.getWidth());
-		    //System.out.println("height: "+image.getHeight());
 			setOpaque(false);
 		}
 		
